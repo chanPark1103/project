@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos: 시간의 신 - 공식 규칙서 (Final Ver.)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f7f7ff;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .section-header {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .section-header:hover {
+            background-color: #f0f4f8;
+        }
+        .section-content {
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            max-height: 0;
+        }
+        .section-content.open {
+            display: block;
+            max-height: 10000px; /* 넉넉하게 설정 */
+        }
+        .card-type-header {
+            background-color: #eef2f7;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <nav class="sticky top-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-blue-800">Chronos: 시간의 신</a>
+            <div class="space-x-4 hidden md:block">
+                <a href="#overview" class="text-gray-600 hover:text-blue-600 transition">게임 개요</a>
+                <a href="#abilities" class="text-gray-600 hover:text-blue-600 transition">시대별 능력</a>
+                <a href="#cards" class="text-gray-600 hover:text-blue-600 transition">카드 종류</a>
+                <a href="#artifacts" class="text-gray-600 hover:text-blue-600 transition">유물</a>
+                <a href="#board-spaces" class="text-gray-600 hover:text-blue-600 transition">특수 보드 칸</a>
+                <a href="#special-systems" class="text-gray-600 hover:text-blue-600 transition">특별 시스템</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto bg-white shadow-lg rounded-2xl p-6 sm:p-10 my-10">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-800 mb-2">🎲 Chronos: 시간의 신</h1>
+            <p class="text-xl text-gray-600">시공간을 넘나드는 치열한 생존 보드게임</p>
+        </header>
+
+        <section id="overview" class="mb-6 border rounded-xl overflow-hidden shadow-sm">
+            <h2 class="text-2xl font-bold section-header p-4 bg-gray-100 flex justify-between items-center">게임 개요<span class="text-xl">+</span></h2>
+            <div class="section-content p-4 space-y-4 text-gray-700">
+                <p>‘Chronos: 시간의 신’은 시공간을 넘나드는 치열한 생존 보드게임입니다. 플레이어들은 각자 고유한 시대를 대표하는 캐릭터가 되어, 다른 모든 경쟁자를 탈락시키고 최후의 1인으로 살아남아야 합니다. 매 순간 변하는 시대의 흐름 속에서 당신의 전략과 운을 시험해 보세요!</p>
+                <div><h3 class="text-xl font-semibold text-gray-800 mb-1">게임 목표</h3><p>다른 모든 플레이어를 탈락시키고 최후의 1인으로 생존하면 즉시 승리합니다.</p></div>
+                <div><h3 class="text-xl font-semibold text-gray-800 mb-1">게임 정보</h3><ul class="list-disc list-inside space-y-1"><li><strong>게임 인원:</strong> 3~5인</li><li><strong>플레이 시간:</strong> 약 20~30분</li></ul></div>
+            </div>
+        </section>
+
+        <section id="abilities" class="mb-6 border rounded-xl overflow-hidden shadow-sm">
+            <h2 class="text-2xl font-bold section-header p-4 bg-gray-100 flex justify-between items-center">시대별 고유 능력<span class="text-xl">+</span></h2>
+            <div class="section-content p-4 text-gray-700">
+                <p class="mb-4">플레이어의 능력은 캐릭터가 아닌, 현재 위치한 보드 칸의 시대에 따라 결정됩니다.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="border p-4 rounded-xl shadow-sm"><h4 class="font-bold text-lg text-orange-600">🏛️ 고대 (0~5칸)</h4><p class="text-sm text-gray-600">턴 시작 시, 카드를 총 3장 뽑습니다. 단, 처음 시작 카드는 3장으로 시작합니다.</p></div>
+                    <div class="border p-4 rounded-xl shadow-sm"><h4 class="font-bold text-lg text-yellow-600">🏰 중세 (6~11칸)</h4><p class="text-sm text-gray-600">턴당 한 번, '방어' 카드 2장을 사용해 HP를 1 회복할 수 있습니다.</p></div>
+                    <div class="border p-4 rounded-xl shadow-sm"><h4 class="font-bold text-lg text-gray-600">⚙️ 근대 (12~17칸)</h4><p class="text-sm text-gray-600">'공격' 카드의 사거리가 1칸 증가합니다.</p></div>
+                    <div class="border p-4 rounded-xl shadow-sm"><h4 class="font-bold text-lg text-emerald-600">🏙️ 현대 (18~23칸)</h4><p class="text-sm text-gray-600">공격받았을 때 주사위를 굴려 정한 두 수가 나올 시 피해를 완전히 무시합니다.</p></div>
+                    <div class="border p-4 rounded-xl shadow-sm"><h4 class="font-bold text-lg text-purple-600">🚀 미래 (24~29칸)</h4><p class="text-sm text-gray-600">턴 시작 시, 손에 있는 카드 중 원하는 카드 1장을 복제합니다.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cards" class="mb-6 border rounded-xl overflow-hidden shadow-sm">
+            <h2 class="text-2xl font-bold section-header p-4 bg-gray-100 flex justify-between items-center">카드 종류 및 효과<span class="text-xl">+</span></h2>
+            <div class="section-content p-4 text-gray-700">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-xl font-bold card-type-header p-2 rounded-t-lg">일반 카드 - 64장</h3>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-gray-50 rounded-b-lg">
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="text-blue-600 mb-2">공격 (24장):</strong><p class="text-sm text-gray-600 mb-2 flex-grow">사거리 안의 상대에게 피해를 1 줍니다.</p><img src="일반 카드/1공격.png" alt="공격 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="text-green-600 mb-2">방어 (14장):</strong><p class="text-sm text-gray-600 mb-2 flex-grow">자신이 받는 피해를 1 막아줍니다.</p><img src="일반 카드/일반 방어.png" alt="방어 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="text-yellow-600 mb-2">회복 (8장):</strong><p class="text-sm text-gray-600 mb-2 flex-grow">사용 시 자신의 HP를 1 회복합니다.</p><img src="일반 카드/일반 회복.png" alt="회복 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="text-purple-600 mb-2">주사위추가 (5장):</strong><p class="text-sm text-gray-600 mb-2 flex-grow">주사위를 한 번 더 굴려 나온 수를 합산하여 이동합니다.</p><img src="일반 카드/일반 주사위.png" alt="주사위 추가 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="text-red-600 mb-2">카드버리기 (8장):</strong><p class="text-sm text-gray-600 mb-2 flex-grow">지정한 상대의 손에서 카드 1장을 무작위로 버리게 합니다.</p><img src="일반 카드/일반 버리기.png" alt="카드 버리기 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="text-gray-600 mb-2">지식의 서고 (4장):</strong><p class="text-sm text-gray-600 mb-2 flex-grow">자신이 가장 최근에 버린 카드 1장을 다시 손으로 가져옵니다.</p><img src="일반 카드/1지식의 서고.png" alt="카드 줍기 카드" class="w-48 mx-auto rounded-md"></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold card-type-header p-2 rounded-t-lg">황금 카드 - 11장</h3>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-gray-50 rounded-b-lg">
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">황금의 지혜:</strong><p class="text-sm text-gray-600 mb-2 flex-grow">일반 카드 2장을 즉시 추가로 뽑습니다.</p><img src="황금 카드/황금 2장 뽑기.png" alt="황금의 지혜 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">차원의 균열:</strong><p class="text-sm text-gray-600 mb-2 flex-grow">원하는 상대 1명을 'Chronos Adrift' 칸으로 강제 이동시킵니다.</p><img src="황금 카드/황금 보내버리기.png" alt="차원의 균열 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">교활한 손:</strong><p class="text-sm text-gray-600 mb-2 flex-grow">원하는 상대의 손에서 카드 1장을 무작위로 훔쳐옵니다.</p><img src="황금 카드/황금 강탈.png" alt="교활한 손 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">시간의 파동:</strong><p class="text-sm text-gray-600 mb-2 flex-grow">'공격' 카드와 함께 사용하면, 모든 상대에게 피해를 1 줍니다.</p><img src="황금 카드/황금 전체 공격.png" alt="시간의 파동 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">숨겨진 유물:</strong><p class="text-sm text-gray-600 mb-2 flex-grow">유물 카드 더미에서 유물 1개를 즉시 획득합니다.</p><img src="황금 카드/황금 유물 발견.png" alt="숨겨진 유물 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">혼돈의 파편:</strong><p class="text-sm text-gray-600 mb-2 flex-grow">강력한 유물인 '카오스 타임 샤드'를 즉시 획득합니다.</p><img src="황금 카드/황금 + 유물 카오스.png" alt="혼돈의 파편 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">생명의 빛:</strong><p class="text-sm text-gray-600 mb-2 flex-grow">모든 플레이어의 HP를 1씩 회복시킵니다.</p><img src="황금 카드/황금 전체 회복.png" alt="생명의 빛 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">기억 소실:</strong><p class="text-sm text-gray-600 mb-2 flex-grow">이 카드를 뽑는 즉시 자신의 카드 1장을 무작위로 버려야 합니다.</p><img src="황금 카드/황금 자기카드 버리기.png" alt="기억 소실 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">시간의 미아:</strong><p class="text-sm text-gray-600 mb-2 flex-grow">뽑는 즉시 'Chronos Adrift' 칸으로 이동하고 다음 턴을 쉽니다.</p><img src="황금 카드/황금 자기 이동.png" alt="시간의 미아 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">약점 노출:</strong><p class="text-sm text-gray-600 mb-2 flex-grow">다음 턴에 자신이 받는 모든 피해가 1 증가합니다.</p><img src="황금 카드/황금 받피증.png" alt="약점 노출 카드" class="w-48 mx-auto rounded-md"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">치유 불가 저주:</strong><p class="text-sm text-gray-600 mb-2 flex-grow">다음 턴까지 모든 HP 회복 효과를 받을 수 없습니다.</p><img src="황금 카드/황금 힐벤.png" alt="치유 불가 저주 카드" class="w-48 mx-auto rounded-md"></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold card-type-header p-2 rounded-t-lg">캐릭터 카드 - 5장</h3>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-gray-50 rounded-b-lg">
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">아르키메데스 (고대)</strong><img src="캐릭 카드/아르키데메스 카드.png" alt="아르키메데스 카드" class="w-48 mx-auto rounded-md mt-auto"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">세종대왕 (중세)</strong><img src="캐릭 카드/세종대왕 캐릭.png" alt="세종대왕 카드" class="w-48 mx-auto rounded-md mt-auto"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">나폴레옹 (근대)</strong><img src="캐릭 카드/나폴레옹 카드.png" alt="나폴레옹 카드" class="w-48 mx-auto rounded-md mt-auto"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">Mr. 박 (현대)</strong><img src="캐릭 카드/미스터 박.png" alt="미스터 박 카드" class="w-48 mx-auto rounded-md mt-auto"></li>
+                            <li class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><strong class="mb-2">닥터. 찬 (미래)</strong><img src="캐릭 카드/닥터 찬 카드.png" alt="닥터 찬 카드" class="w-48 mx-auto rounded-md mt-auto"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="artifacts" class="mb-6 border rounded-xl overflow-hidden shadow-sm">
+            <h2 class="text-2xl font-bold section-header p-4 bg-gray-100 flex justify-between items-center">유물 및 효과<span class="text-xl">+</span></h2>
+            <div class="section-content p-4 text-gray-700">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><h4 class="font-bold text-lg text-gray-800 mb-2">안티키테라 기계</h4><p class="text-sm text-gray-600 mb-2 flex-grow">사용 시 주사위를 한 번 다시 굴릴 수 있습니다. (1회용)</p><img src="유물 카드/안티키테라 유물.png" alt="안티키테라" class="w-48 mx-auto rounded-md"></div>
+                    <div class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><h4 class="font-bold text-lg text-gray-800 mb-2">훈민정음</h4><p class="text-sm text-gray-600 mb-2 flex-grow">매 턴 뽑는 카드 수가 1장 늘어나고, 손에 들 수 있는 최대 카드 수가 5장으로 증가합니다.</p><img src="유물 카드/훈민정음 유물.png" alt="훈민정음" class="w-48 mx-auto rounded-md"></div>
+                    <div class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><h4 class="font-bold text-lg text-gray-800 mb-2">에펠탑의 철골 조각</h4><p class="text-sm text-gray-600 mb-2 flex-grow">사용 시 자신의 HP를 2 회복합니다. (1회용)</p><img src="유물 카드/에펠탑 조각 유물.png" alt="에펠탑 철골 조각" class="w-48 mx-auto rounded-md"></div>
+                    <div class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><h4 class="font-bold text-lg text-gray-800 mb-2">스마트폰</h4><p class="text-sm text-gray-600 mb-2 flex-grow">'공격' 카드 사용 후, 한 번 더 공격할 수 있습니다. (총 2회 사용 가능)</p><img src="유물 카드/유물 스마트폰.png" alt="스마트폰" class="w-48 mx-auto rounded-md"></div>
+                    <div class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><h4 class="font-bold text-lg text-gray-800 mb-2">안드로이드 코어</h4><p class="text-sm text-gray-600 mb-2 flex-grow">'공격' 카드와 함께 사용 시 피해량을 2 증가시킵니다. (1회용)</p><img src="유물 카드/유물 안드로이드.png" alt="안드로이드 코어" class="w-48 mx-auto rounded-md"></div>
+                    <div class="border bg-white rounded-lg p-4 shadow-sm flex flex-col"><h4 class="font-bold text-lg text-gray-800 mb-2">카오스 타임 샤드</h4><p class="text-sm text-gray-600 mb-2 flex-grow">다음 자신의 턴 시작 시, 자신은 1의 피해를 받고 다른 모든 플레이어는 1의 피해와 함께 카드 1장을 버립니다. (1회용)</p><img src="황금 카드/황금 + 유물 카오스.png" alt="카오스 타임 샤드" class="w-48 mx-auto rounded-md"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="board-spaces" class="mb-6 border rounded-xl overflow-hidden shadow-sm">
+            <h2 class="text-2xl font-bold section-header p-4 bg-gray-100 flex justify-between items-center">특수 보드 칸<span class="text-xl">+</span></h2>
+            <div class="section-content p-4 text-gray-700">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="border bg-white rounded-lg p-4 shadow-sm"><h4 class="font-bold text-lg text-gray-800">Event</h4><p class="text-sm text-gray-600">황금 카드 덱에서 카드 1장을 뽑습니다.</p></div>
+                    <div class="border bg-white rounded-lg p-4 shadow-sm"><h4 class="font-bold text-lg text-gray-800">Chronos Adrift</h4><p class="text-sm text-gray-600">이 칸에 도착하면 다음 턴을 강제로 쉬게 됩니다.</p></div>
+                    <div class="border bg-white rounded-lg p-4 shadow-sm"><h4 class="font-bold text-lg text-gray-800">TimeParadox</h4><p class="text-sm text-gray-600">모든 플레이어는 자신의 오른쪽 플레이어의 손에서 카드 2장을 무작위로 가져옵니다.</p></div>
+                    <div class="border bg-white rounded-lg p-4 shadow-sm"><h4 class="font-bold text-lg text-gray-800">TimeTravel</h4><p class="text-sm text-gray-600">보드 위 원하는 칸 어디로든 즉시 이동할 수 있습니다.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="special-systems" class="mb-6 border rounded-xl overflow-hidden shadow-sm">
+            <h2 class="text-2xl font-bold section-header p-4 bg-gray-100 flex justify-between items-center">특별 시스템<span class="text-xl">+</span></h2>
+            <div class="section-content p-4 text-gray-700">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="border bg-white rounded-lg p-4 shadow-sm">
+                        <h4 class="font-bold text-lg text-gray-800">⚔️ 공격 사거리</h4>
+                        <p class="text-sm text-gray-600">사거리는 고정되어 있지 않고 게임 상황에 따라 계속 변합니다.</p>
+                        <ul class="list-disc list-inside mt-2 text-sm text-gray-600">
+                            <li><strong>기본 사거리:</strong> 9 - (시작 플레이어 수)</li>
+                            <li><strong>최종 사거리:</strong> 기본 사거리 + (현재까지 탈락한 플레이어 수)</li>
+                            <li>(예: 4인 게임 시작 시 기본 사거리는 5칸)</li>
+                        </ul>
+                    </div>
+                    <div class="border bg-white rounded-lg p-4 shadow-sm">
+                        <h4 class="font-bold text-lg text-gray-800">💥 시공간 붕괴</h4>
+                        <p class="text-sm text-gray-600">게임 후반부를 가속하는 특별 규칙입니다.</p>
+                         <ul class="list-disc list-inside mt-2 text-sm text-gray-600">
+                            <li><strong>발동 조건:</strong> 생존자가 3명(3인 게임 시 2명)이 되면 발동</li>
+                            <li><strong>효과:</strong> 발동 이후, 모든 플레이어는 자신의 턴 시작 시 1의 피해를 받습니다. (방어 가능)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="bg-gray-800 text-white text-center py-4 mt-10">
+        <p>&copy; 2025 Chronos: 시간의 신. 모든 권리 보유.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const headers = document.querySelectorAll('.section-header');
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('span');
+                    if (content.classList.contains('open')) {
+                        content.classList.remove('open');
+                        icon.textContent = '+';
+                    } else {
+                        content.classList.add('open');
+                        icon.textContent = '-';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
